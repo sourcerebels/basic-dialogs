@@ -6,6 +6,7 @@ Helper classes that I use in my projects to display simple Android dialogs:
 * AlertDialogFragment
 * ConfirmationDialogFragment
 * ProgressDialogFragment
+* UserInputDialogFragment
 
 ## Download
 
@@ -24,6 +25,6 @@ Add the dependency at your module's build.gradle:
 
 ```groovy
 dependencies {
-    compile 'com.github.sourcerebels:basic-dialogs:1.0.RC1'
+    compile 'com.github.sourcerebels:basic-dialogs:1.0.RC2'
 }
 ```

@@ -3,4 +3,5 @@
     <string name="show_progress_dialog">Show progress dialog</string>
     <string name="show_alert_dialog">Show alert dialog</string>
     <string name="show_confirmation_dialog">Show confirmation dialog to Exit</string>
+    <string name="show_user_input_dialog">Show user input dialog</string>
 </resources>

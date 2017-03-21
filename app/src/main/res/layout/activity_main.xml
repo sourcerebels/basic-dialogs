@@ -19,6 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/show_progress_dialog"/>
+    
+    <Button
+        android:id="@+id/btn_user_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_user_input_dialog"/>
 
     <Button
         android:id="@+id/btn_confirm_exit"

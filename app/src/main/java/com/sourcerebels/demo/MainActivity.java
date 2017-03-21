@@ -5,18 +5,23 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.sourcerebels.basicdialogs.AlertDialogFragment;
 import com.sourcerebels.basicdialogs.ConfirmationDialogFragment;
 import com.sourcerebels.basicdialogs.ProgressDialogFragment;
+import com.sourcerebels.basicdialogs.UserInputDialogFragment;
 
-import java.lang.ref.WeakReference;
+public class MainActivity extends AppCompatActivity
+        implements ConfirmationDialogFragment.OnConfirmationListener,
+        UserInputDialogFragment.UserInputDialogListener {
 
-public class MainActivity extends AppCompatActivity implements ConfirmationDialogFragment.OnConfirmationListener {
+    public static final String TAG = "MainActivity";
 
     private static final int REQUEST_CODE_EXIT = 1;
+    private static final int REQUEST_CODE_USER_INPUT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
             }
         });
 
+        findViewById(R.id.btn_user_input).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserInputDialogFragment.show(getSupportFragmentManager(), "User input dialog",
+                        "Enter your name", REQUEST_CODE_USER_INPUT);
+            }
+        });
+
     }
 
     @Override
@@ -62,6 +75,14 @@ public class MainActivity extends AppCompatActivity implements ConfirmationDialo
     public void onCancel(int requestCode, Parcelable entity) {
         if (requestCode == REQUEST_CODE_EXIT) {
             Toast.makeText(this, "Cancelled by user", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onUserInput(int requestCode, String input) {
+        Log.d(TAG, "onUserInput: ");
+        if (requestCode == REQUEST_CODE_USER_INPUT) {
+            Toast.makeText(this, "Entered by user: " + input, Toast.LENGTH_SHORT).show();
         }
     }
 
